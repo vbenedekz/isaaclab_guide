@@ -87,6 +87,18 @@ Some general tips for navigation:
     + `flat/rough_env_cfg.py`: overwrite classes by inheritance, modify member variables as needed (e.g. `self.rewards.feet_air_time.weight = xxx`)
     + `agents` folder contains configurations for different teaching models, teaching parameters → algorithm
 
+## Weights and Biases setup
+1. Login from terminal:
+```bash
+wandb login
+```
+2. Get API key (Profile > API key)
+3. Set WANDB_USERNAME (containing the organization's name)
+4. Set the args `logger` and `log_project_name` as the following:
+```bash
+python scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Ant-v0 --headless --enable_cameras --video --video_length 100 --logger wandb --log_project_name WANDB_PROJECT
+```
+
 ## References
 + [Isaac Lab Documentation](https://isaac-sim.github.io/IsaacLab/main/index.html#)
 + [Isaac Lab: How to set up training environment and use custom policy](https://www.youtube.com/watch?v=o_KokSzb8NI)
